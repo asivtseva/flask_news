@@ -7,7 +7,9 @@ app.config.from_object('config.Config')
 
 db = SQLAlchemy(app)
 
-from . import models, views # noqa
+from . import models # noqa
 
 with app.app_context():
     db.create_all()
+
+from . import views
