@@ -1,6 +1,5 @@
 from datetime import datetime
 
-from . import app
 from . import db
 
 
@@ -22,8 +21,3 @@ class News(db.Model):
 
     def __repr__(self):
         return f'News({self.id}, {self.title})'
-
-
-with app.app_context():
-    def get_categories():
-        return [(category.id, category.title) for category in Category.query.all()]

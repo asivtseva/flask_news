@@ -3,10 +3,13 @@ from wtforms import StringField, TextAreaField, SelectField, SubmitField
 from wtforms.validators import DataRequired, Length
 
 from . import app
-from .models import get_categories
+from .models import Category
 
 
 with app.app_context():
+    def get_categories():
+        return [(category.id, category.title) for category in Category.query.all()]
+
     class AddNewsForm(FlaskForm):
         title = StringField(
             'Название',
